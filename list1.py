@@ -23,8 +23,17 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Counts the number of strings in a list that have matching first and last characters.
+
+    Parameters
+    ----------
+    words: list of strings
+
+    Returns
+    -------
+    Returns the number of strings in the list that are at least 2 characters long and have matching first and last characers.
+    """
+    return len([word for word in words if (len(word) > 1 and word[0] == word[-1])])
 
 
 # B. front_x
@@ -35,8 +44,20 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Sorts a list of strings, but keeps the strings starting with 'x' at the beginning of the sorted list.
+
+    Parameters
+    ----------
+    words: list of strings
+
+    Returns
+    -------
+    List of words sorted alphabetically, but with the words starting with 'x' at the beginning of the list.
+    """
+    word_list = sorted([word for word in words if word[0] == 'x'])
+    non_x = sorted([word for word in words if not word[0] == 'x'])
+    word_list.extend(non_x)
+    return word_list
 
 
 # C. sort_last
@@ -46,8 +67,17 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Returns a list of tuples sorted in increasing order by the last element.
+
+    Parameters
+    ----------
+    tuples: list of tuples
+
+    Returns
+    -------
+    Returns a list of tuples, sorted in increasing order by the second element of each tuple.
+    """
+    return sorted(tuples, key= lambda x: x[1])
 
 
 # Simple provided test() function used in main() to print

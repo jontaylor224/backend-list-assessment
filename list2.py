@@ -17,7 +17,7 @@
 # Hint: Don't use `set()`
 def remove_adjacent(nums):
     """Your code goes here.  Edit this docstring."""
-    return
+    return [nums[i] for i in range(len(nums)) if i == 0 or nums[i-1] != nums[i]]
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -26,7 +26,17 @@ def remove_adjacent(nums):
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
 def linear_merge(list1, list2):
     """Your code goes here.  Edit this docstring."""
-    return
+    result = []
+
+    while list1 and list2:
+        result.append((list1 if list1[-1] > list2[-1] else list2).pop(-1))
+
+    if len(list1):
+        result += list1[-1::-1]
+    if len(list2):
+        result += list2[-1::-1]
+
+    return result[-1::-1]
 
 
 
@@ -55,6 +65,8 @@ def main():
          ['aa', 'bb', 'cc', 'xx', 'zz'])
     test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
          ['aa', 'aa', 'aa', 'bb', 'bb'])
+    test(linear_merge([1, 2, 3, 5, 9, 11, 13, 17], [6, 7, 12, 15]),
+         [1, 2, 3, 5, 6, 7, 9, 11, 12, 13, 15, 17])
 
 # Standard boilerplate (python idiom) to call the main() function.
 if __name__ == '__main__':
