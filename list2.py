@@ -16,7 +16,17 @@
 # modify the passed in list.
 # Hint: Don't use `set()`
 def remove_adjacent(nums):
-    """Your code goes here.  Edit this docstring."""
+    """Returns a list removing all duplicate adjacent elements.
+
+    Parameters
+    ----------
+    nums: list
+
+    Returns
+    -------
+    Returns a list where all adjacent elements that are equal have been reduced to a single element, and the order of the list is maintained.
+    eg. [1, 2, 2, 3, 2, 2, 4, 3, 3] => [1, 2, 3, 2, 4, 3]
+    """
     return [nums[i] for i in range(len(nums)) if i == 0 or nums[i-1] != nums[i]]
 
 
@@ -25,7 +35,17 @@ def remove_adjacent(nums):
 # The solution should work in "linear" time, making a single pass of both lists.
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
 def linear_merge(list1, list2):
-    """Your code goes here.  Edit this docstring."""
+    """Merges two lists into a single sorted list in 'linear' time without using sort() or sorted().
+
+    Parameters
+    ----------
+    list1: list
+    list2: list
+
+    Returns
+    -------
+    Returns a single list sorted in increasing order.
+    """
     result = []
 
     while list1 and list2:
